@@ -1,4 +1,16 @@
-
+         <!-- body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +27,8 @@
             --font-family: 'Star Jedi', sans-serif;
             --button-font-family: 'Star Jedi', sans-serif;
             --button-color: #F44583;
+            --cont-color:grey;
+            --time-color: #eeeeee;
         }
     
         body {
@@ -37,24 +51,33 @@
             font-weight: bold;
             color: var(--primary-color);
             margin: 20px 0;
-            /* animation: glow 1s infinite alternate; */
+        }
+
+        .time {
+            background-color: var(--time-color);
+            padding: 5px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
-            }
-    
-            100% {
-                text-shadow: 0 0 15px var(--primary-color), 0 0 20px var(--primary-color);
-            }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-    
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+        }
+
+        .cont {
+            background-color: var(--cont-color);
+            padding: 30px;
+            border-radius: 10px;
         }
     
         button {
@@ -104,6 +127,7 @@
         .share-section {
             margin-top: 20px;
             font-family: var(--font-family);
+            gap: 20px;
         }
     
         textarea {
@@ -118,9 +142,11 @@
         }
     
         .retro {
-            --primary-color: #ffd700;
-            --background-color: #000;
-            --text-color: #fff;
+            --primary-color: #46BFEE;
+            --background-color: #1919A6;
+            --time-color: #111;
+            --cont-color:#FDFF00;
+            --text-color: #00FF00;
             --font-family: 'Press Start 2P', monospace;
             --button-font-family: 'Press Start 2P', monospace;
             --button-color: #ff4081;
@@ -128,11 +154,13 @@
     
         .modern {
             --primary-color: #ffe81f;
-            --background-color: #000;
-            --text-color: #ffffff;
+            --time-color:#C07F00 ;
+            --background-color: #B6CBBD;
+            --cont-color: #FFF7D4;
+            --text-color: #3B3030;
             --font-family: 'Star Jedi', sans-serif;
             --button-font-family: 'Star Jedi', sans-serif;
-            --button-color: #444;
+            --button-color: #4C3D3D;
         }
     
         .digital {
@@ -155,6 +183,7 @@
     }
 
     .buttons {
+        /* flex-direction: column; */
         gap: 10px;
     }
 
@@ -193,13 +222,16 @@
 </head>
 
 <body>
-    <div id="stopwatch">00:00:00</div>
+   
+    <h1>Stopwatch</h1>
+    <div class="cont">
+    <div class="time"><div id="stopwatch">00:00:00</div></div>
     <div class="buttons">
         <button onclick="startStopwatch()">Start</button>
         <button onclick="stopStopwatch()">Stop</button>
         <button onclick="resetStopwatch()">Reset</button>
         <button onclick="recordLap()">Lap</button>
-    </div>
+    </div> </div>
     <div id="laps"></div>
     <div class="theme-selector">
         <label for="theme">Select Theme:</label>
@@ -214,6 +246,7 @@
     <div class="share-section">
         <button onclick="shareLaps()">Share Times</button>
         <textarea id="share-area" readonly placeholder="Your lap times will appear here"></textarea>
+        <!-- <button onclick="shareLaps()">Share Times</button> -->
     </div>
 
     <script>
@@ -308,4 +341,6 @@
 </body>
 
 </html>
+
+
 
